@@ -37,6 +37,7 @@ export class AwsdevhourBackendPipelineStack extends Stack {
     
     const pipeline = new CdkPipeline(this, 'Pipeline', {
       crossAccountKeys: false,
+      selfMutating: true,
       cloudAssemblyArtifact,
       // Define application source
       sourceAction: new codepipeline_actions.GitHubSourceAction({
